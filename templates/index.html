@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Gesture Mouse Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hand Gesture Mouse Control</h1>
+        </header>
+
+        <div class="main-content">
+            <div class="video-container">
+                <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+                <div id="coordinates">X: 0, Y: 0</div>
+            </div>
+
+            <div class="controls">
+                <div class="control-panel">
+                    <button id="startBtn">Start Camera</button>
+                    <button id="stopBtn" disabled>Stop Camera</button>
+                    <button id="enableTrackingBtn" disabled>Enable Mouse Control</button>
+                    <button id="disableTrackingBtn" disabled>Disable Mouse Control</button>
+                </div>
+                <div class="status" id="statusText">Camera not started</div>
+                
+                <div class="settings">
+                    <div class="setting-item">
+                        <label for="clickDistance">Click Distance Threshold</label>
+                        <input type="number" id="clickDistance" min="10" max="100" value="20">
+                    </div>
+                    <div class="setting-item">
+                        <label for="smoothing">Pointer Smoothing</label>
+                        <input type="range" id="smoothing" min="0" max="0.95" step="0.05" value="0.5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gesture-info">
+                <h2>Available Gestures</h2>
+                <div class="gesture-grid">
+                    <div class="gesture-card">
+                        <div class="gesture-icon">👆</div>
+                        <div class="gesture-text">
+                            <div class="gesture-title">Move Cursor</div>
+                            <div>Point with your index finger to move the cursor</div>
+                        </div>
+                    </div>
+                    <div class="gesture-card">
+                        <div class="gesture-icon">👌</div>
+                        <div class="gesture-text">
+                            <div class="gesture-title">Left Click</div>
+                            <div>Pinch your thumb and middle finger</div>
+                        </div>
+                    </div>
+                    <div class="gesture-card">
+                        <div class="gesture-icon">🤌</div>
+                        <div class="gesture-text">
+                            <div class="gesture-title">Right Click</div>
+                            <div>Pinch your thumb and ring finger</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="debug">
+                <h2>Debug Information</h2>
+                <div id="debugInfo"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Hand Gesture Mouse Control | Powered by MediaPipe Hands</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
