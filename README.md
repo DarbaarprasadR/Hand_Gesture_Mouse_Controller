@@ -55,9 +55,6 @@ hand-gesture-mouse/
 └── requirements.txt
 ```
 
-## 🙋‍♀️ Author
-
-- **Supriya Gope** (a.k.a. Gopi)
 
 ## 🌟 Star this repo if you found it useful!
 ```
